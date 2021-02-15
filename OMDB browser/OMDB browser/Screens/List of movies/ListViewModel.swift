@@ -32,7 +32,6 @@ final class ListViewModel {
                 switch result {
                 case .success(let result):
                     self?.movies = result.search
-                    print("Movies: \(result.search)")
                     self?.delegate?.updateResults()
                 case .failure(let error):
                     self?.delegate?.showError(error)

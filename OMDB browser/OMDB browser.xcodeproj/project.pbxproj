@@ -99,13 +99,9 @@
 		CF472A3C25DAE45F0088142F /* OMDB browser */ = {
 			isa = PBXGroup;
 			children = (
-				CF472A3D25DAE45F0088142F /* AppDelegate.swift */,
-				CF472A3F25DAE45F0088142F /* SceneDelegate.swift */,
-				CF472A4125DAE45F0088142F /* ViewController.swift */,
-				CF472A4325DAE45F0088142F /* Main.storyboard */,
-				CF472A4625DAE4600088142F /* Assets.xcassets */,
-				CF472A4825DAE4600088142F /* LaunchScreen.storyboard */,
-				CF472A4B25DAE4600088142F /* Info.plist */,
+				CF472A7A25DAE5200088142F /* API */,
+				CF472A7025DAE47B0088142F /* Screens */,
+				CF472A7325DAE4B80088142F /* Supporting files */,
 			);
 			path = "OMDB browser";
 			sourceTree = "<group>";
@@ -126,6 +122,50 @@
 				CF472A6125DAE4600088142F /* Info.plist */,
 			);
 			path = "OMDB browserUITests";
+			sourceTree = "<group>";
+		};
+		CF472A7025DAE47B0088142F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				CF472A7225DAE4930088142F /* Single Movie Details */,
+				CF472A7125DAE48B0088142F /* List of movies */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CF472A7125DAE48B0088142F /* List of movies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "List of movies";
+			sourceTree = "<group>";
+		};
+		CF472A7225DAE4930088142F /* Single Movie Details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Single Movie Details";
+			sourceTree = "<group>";
+		};
+		CF472A7325DAE4B80088142F /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				CF472A3D25DAE45F0088142F /* AppDelegate.swift */,
+				CF472A3F25DAE45F0088142F /* SceneDelegate.swift */,
+				CF472A4125DAE45F0088142F /* ViewController.swift */,
+				CF472A4325DAE45F0088142F /* Main.storyboard */,
+				CF472A4625DAE4600088142F /* Assets.xcassets */,
+				CF472A4825DAE4600088142F /* LaunchScreen.storyboard */,
+				CF472A4B25DAE4600088142F /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		CF472A7A25DAE5200088142F /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,7 +478,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8679M76F7L;
-				INFOPLIST_FILE = "OMDB browser/Info.plist";
+				INFOPLIST_FILE = "OMDB browser/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +497,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8679M76F7L;
-				INFOPLIST_FILE = "OMDB browser/Info.plist";
+				INFOPLIST_FILE = "OMDB browser/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,6 +8,16 @@
 import Foundation
 
 protocol MoviesDatabaseAPIProtocol {
-    func fetchResults(query: String) -> OMDBSearchResult
-    func fetchDetails(movieId: String) -> MovieDetails
+    func fetchResults(query: String)
+    func fetchDetails(movieId: String)
+}
+
+final class MovieDatabaseAPI: MoviesDatabaseAPIProtocol {
+    func fetchResults(query: String) {
+        let url = "http://www.omdbapi.com/?apikey=b9bd48a6&s=\(query)&type=movie"
+    }
+    
+    func fetchDetails(movieId: String) {
+        let url = "http://www.omdbapi.com/?apikey=b9bd48a6&i=\(movieId)"
+    }
 }

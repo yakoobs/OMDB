@@ -7,17 +7,43 @@
 
 import Foundation
 
+typealias SearchResultCompletion = (Result<OMDBSearchResult,Error>) -> Void
+typealias FetchDetailsCompletion = (Result<MovieDetails,Error>) -> Void
+
 protocol MoviesDatabaseAPIProtocol {
-    func fetchResults(query: String)
-    func fetchDetails(movieId: String)
+    func search(query: String, completion: @escaping SearchResultCompletion)
+    func fetchDetails(movieId: String, completion: @escaping FetchDetailsCompletion)
 }
 
 final class MovieDatabaseAPI: MoviesDatabaseAPIProtocol {
-    func fetchResults(query: String) {
-        let url = "http://www.omdbapi.com/?apikey=b9bd48a6&s=\(query)&type=movie"
+    func search(query: String, completion: @escaping SearchResultCompletion) {
+        
+        if let url = APIEndpoints.search(query).url {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    do {
+                        let result = try JSONDecoder().decode(OMDBSearchResult.self, from: data)
+                        completion(.success(result))
+                    } catch let error {
+                        completion(.failure(error))
+                    }
+                }
+            }.resume()
+        }
     }
     
-    func fetchDetails(movieId: String) {
-        let url = "http://www.omdbapi.com/?apikey=b9bd48a6&i=\(movieId)"
+    func fetchDetails(movieId: String, completion: @escaping FetchDetailsCompletion) {
+        if let url = APIEndpoints.details(movieId).url {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    do {
+                        let details = try JSONDecoder().decode(MovieDetails.self, from: data)
+                        completion(.success(details))
+                    } catch let error {
+                        completion(.failure(error))
+                    }
+                }
+            }.resume()
+        }
     }
 }

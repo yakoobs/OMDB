@@ -9,31 +9,24 @@ import Foundation
 
 // MARK: - OMDBSearchResult
 struct OMDBSearchResult: Codable {
-    let search: [MovieBasicInfo]
-    let totalResults, response: String
+    let search: [MovieBasicInfo]?
+    let totalResults: String
 
     enum CodingKeys: String, CodingKey {
-        case search
+        case search = "Search"
         case totalResults
-        case response
     }
 }
 
 // MARK: - Search
 struct MovieBasicInfo: Codable {
     let title, year, imdbID: String
-    let type: TypeEnum
     let poster: String
 
     enum CodingKeys: String, CodingKey {
-        case title
-        case year
+        case title = "Title"
+        case year = "Year"
         case imdbID
-        case type
-        case poster
+        case poster = "Poster"
     }
-}
-
-enum TypeEnum: String, Codable {
-    case movie = "movie"
 }

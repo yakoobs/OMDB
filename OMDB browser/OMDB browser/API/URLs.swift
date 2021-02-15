@@ -26,6 +26,6 @@ enum APIEndpoints {
 }
 
 struct APIConstatnts {
-    static let baseURL = "http://www.omdbapi.com/"
+    static let baseURL = "https://www.omdbapi.com/"
     static let apiKey = "b9bd48a6"
 }

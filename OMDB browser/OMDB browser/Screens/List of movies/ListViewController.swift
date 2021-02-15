@@ -12,6 +12,7 @@ final class ListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private let viewModel = ListViewModel()
+    private let showDetailsSegueId = "showDetails"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,14 @@ final class ListViewController: UIViewController {
         let cellName = MovieListCollectionViewCell.name
         let nib = UINib(nibName: cellName, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: cellName)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? MovieDetailsViewController,
+           let selectedMovieId = viewModel.selectedItem?.imdbID {
+            let viewModel = MovieDetailsViewModel(movieId: selectedMovieId)
+            viewController.viewModel = viewModel
+        }
     }
 }
 
@@ -41,6 +50,15 @@ extension ListViewController: UICollectionViewDataSource {
             cell.setup(with: movie)
         }
         return cell
+    }
+}
+
+extension ListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let selectedMovie = viewModel.movies?[indexPath.item] {
+            viewModel.selectedItem = selectedMovie
+            performSegue(withIdentifier: showDetailsSegueId, sender: nil)
+        }
     }
 }
 

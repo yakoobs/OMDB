@@ -23,6 +23,8 @@
 		CFDBCB0525DB1E36008B9809 /* MovieListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDBCB0325DB1E36008B9809 /* MovieListCollectionViewCell.swift */; };
 		CFDBCB0625DB1E36008B9809 /* MovieListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFDBCB0425DB1E36008B9809 /* MovieListCollectionViewCell.xib */; };
 		CFDBCB0C25DB206F008B9809 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDBCB0B25DB206F008B9809 /* UIImageViewExtensions.swift */; };
+		CFDBCB1725DB2D66008B9809 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDBCB1625DB2D66008B9809 /* MovieDetailsViewController.swift */; };
+		CFDBCB1F25DB2D9D008B9809 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDBCB1E25DB2D9D008B9809 /* MovieDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		CFDBCB0325DB1E36008B9809 /* MovieListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCollectionViewCell.swift; sourceTree = "<group>"; };
 		CFDBCB0425DB1E36008B9809 /* MovieListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListCollectionViewCell.xib; sourceTree = "<group>"; };
 		CFDBCB0B25DB206F008B9809 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		CFDBCB1625DB2D66008B9809 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		CFDBCB1E25DB2D9D008B9809 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,8 @@
 		CF472A7225DAE4930088142F /* Single Movie Details */ = {
 			isa = PBXGroup;
 			children = (
+				CFDBCB1625DB2D66008B9809 /* MovieDetailsViewController.swift */,
+				CFDBCB1E25DB2D9D008B9809 /* MovieDetailsViewModel.swift */,
 			);
 			path = "Single Movie Details";
 			sourceTree = "<group>";
@@ -355,6 +361,8 @@
 				CF472A3E25DAE45F0088142F /* AppDelegate.swift in Sources */,
 				CF472A4025DAE45F0088142F /* SceneDelegate.swift in Sources */,
 				CFDBCAFE25DB168B008B9809 /* ListViewModel.swift in Sources */,
+				CFDBCB1F25DB2D9D008B9809 /* MovieDetailsViewModel.swift in Sources */,
+				CFDBCB1725DB2D66008B9809 /* MovieDetailsViewController.swift in Sources */,
 				CFDBCB0C25DB206F008B9809 /* UIImageViewExtensions.swift in Sources */,
 				CFDBCAF325DAEF90008B9809 /* MovieDetails.swift in Sources */,
 			);

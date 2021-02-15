@@ -17,6 +17,7 @@ final class ListViewModel {
     
     private let moviesAPI: MoviesDatabaseAPIProtocol
     var movies: [MovieBasicInfo]?
+    var selectedItem: MovieBasicInfo?
     
     init(moviesAPI: MoviesDatabaseAPIProtocol = MovieDatabaseAPI()) {
         self.moviesAPI = moviesAPI

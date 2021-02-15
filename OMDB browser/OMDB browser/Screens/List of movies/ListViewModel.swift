@@ -16,7 +16,7 @@ final class ListViewModel {
     weak var delegate: ListViewModelDelegate?
     
     private let moviesAPI: MoviesDatabaseAPIProtocol
-    private var movies: [MovieBasicInfo]?
+    var movies: [MovieBasicInfo]?
     
     init(moviesAPI: MoviesDatabaseAPIProtocol = MovieDatabaseAPI()) {
         self.moviesAPI = moviesAPI
@@ -24,6 +24,10 @@ final class ListViewModel {
     
     func search(for query: String) {
         moviesAPI.search(query: query, completion: handleSearchResults)
+    }
+    
+    var resultsCount: Int {
+        return movies?.count ?? 0
     }
     
     private var handleSearchResults: SearchResultCompletion {

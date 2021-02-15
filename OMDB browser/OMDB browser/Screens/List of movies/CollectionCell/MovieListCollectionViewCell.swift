@@ -7,12 +7,15 @@
 
 import UIKit
 
-class MovieListCollectionViewCell: UICollectionViewCell {
+final class MovieListCollectionViewCell: UICollectionViewCell {
+    
+    static let name = "MovieListCollectionViewCell"
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
     func setup(with movie: MovieBasicInfo) {
-        imageView.image =
-        titleLabel.text = movie.title + "(\(movie.year)"
+        imageView.downloaded(from: movie.poster)
+        titleLabel.text = movie.title + " (\(movie.year))"
     }
 }

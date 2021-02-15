@@ -17,7 +17,39 @@ final class ListViewController: UIViewController {
         super.viewDidLoad()
         title = NSLocalizedString("Film list", comment: "List screen title")
         viewModel.delegate = self
+        registerCell()
     }
+    
+    private func registerCell() {
+        let cellName = MovieListCollectionViewCell.name
+        let nib = UINib(nibName: cellName, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: cellName)
+    }
+}
+
+extension ListViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.resultsCount
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellIdentifier = MovieListCollectionViewCell.name
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MovieListCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        if let movie = viewModel.movies?[indexPath.item] {
+            cell.setup(with: movie)
+        }
+        return cell
+    }
+}
+
+extension ListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+          let padding: CGFloat =  50
+          let collectionViewSize = collectionView.frame.size.width - padding
+          return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
+      }
 }
 
 extension ListViewController: UISearchBarDelegate {

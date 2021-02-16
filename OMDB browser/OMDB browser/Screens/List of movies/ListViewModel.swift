@@ -40,6 +40,8 @@ final class ListViewModel {
                     self?.movies = result.search
                     self?.delegate?.updateResults()
                 case .failure(let error):
+                    self?.movies = nil
+                    self?.delegate?.updateResults() 
                     self?.delegate?.showError(error)
                 }
             }

@@ -12,7 +12,6 @@ final class ListViewController: UIViewController, AlertPresentable {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private let viewModel = ListViewModel()
-    private let showDetailsSegueId = "showDetails"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +55,7 @@ extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedMovie = viewModel.movies[indexPath.item]
         viewModel.selectedItem = selectedMovie
+        let showDetailsSegueId = "showDetails"
         performSegue(withIdentifier: showDetailsSegueId, sender: nil)
     }
     

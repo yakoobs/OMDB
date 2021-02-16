@@ -38,6 +38,8 @@ extension MovieDetailsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // poster section
         if indexPath.row == MovieDetailCell.topPoster.row {
             let identifier = TopMovieDetailsTableViewCell.name
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? TopMovieDetailsTableViewCell,
@@ -49,6 +51,7 @@ extension MovieDetailsViewController: UITableViewDataSource {
             return cell
         }
         
+        // info section
         if indexPath.row == MovieDetailCell.middleInfo.row {
             let identifier = MiddleMovieDetailsInfoTableViewCell.name
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MiddleMovieDetailsInfoTableViewCell,
@@ -60,6 +63,7 @@ extension MovieDetailsViewController: UITableViewDataSource {
             return cell
         }
         
+        // people section
         if indexPath.row == MovieDetailCell.bottomInfo.row {
             let identifier = BottomMovieDetailsInfoTableViewCell.name
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? BottomMovieDetailsInfoTableViewCell,

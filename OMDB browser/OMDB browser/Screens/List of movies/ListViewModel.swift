@@ -13,12 +13,13 @@ protocol ListViewModelDelegate: AnyObject {
 }
 
 final class ListViewModel {
-    weak var delegate: ListViewModelDelegate?
     
-    private let moviesAPI: MoviesDatabaseAPIProtocol
+    weak var delegate: ListViewModelDelegate?
     var movies: [MovieBasicInfo]?
     var selectedItem: MovieBasicInfo?
     
+    private let moviesAPI: MoviesDatabaseAPIProtocol
+
     init(moviesAPI: MoviesDatabaseAPIProtocol = MovieDatabaseAPI()) {
         self.moviesAPI = moviesAPI
     }

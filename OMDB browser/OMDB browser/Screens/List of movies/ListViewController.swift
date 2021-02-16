@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ListViewController: UIViewController {
+final class ListViewController: UIViewController, AlertPresentable {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -64,7 +64,7 @@ extension ListViewController: UICollectionViewDelegate {
 
 extension ListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          let padding: CGFloat = 10
+          let padding: CGFloat = 40
           let collectionViewSize = collectionView.frame.size.width - padding
           return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
       }
@@ -86,12 +86,5 @@ extension ListViewController: UISearchBarDelegate {
 extension ListViewController: ListViewModelDelegate {
     func updateResults() {
         collectionView.reloadData()
-    }
-    
-    func showError(_ error: Error) {
-        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        let closeAction = UIAlertAction(title: "OK", style: .cancel)
-        alert.addAction(closeAction)
-        present(alert, animated: true)
     }
 }

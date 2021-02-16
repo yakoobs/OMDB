@@ -11,7 +11,18 @@ typealias SearchResultCompletion = (Result<OMDBSearchResult,Error>) -> Void
 typealias FetchDetailsCompletion = (Result<MovieDetails,Error>) -> Void
 
 protocol MoviesDatabaseAPIProtocol {
+    
+    /// Search for movies with string query
+    /// - Parameters:
+    ///   - query: movie title
+    ///   - page: Optional param when you want to use paging
+    ///   - completion: Returns search result with movies' basic info or error.
     func search(query: String, page: Int?, completion: @escaping SearchResultCompletion)
+    
+    /// Get details about the moview
+    /// - Parameters:
+    ///   - movieId: Identifier from IMDb
+    ///   - completion: Returns movie details or error
     func fetchDetails(movieId: String, completion: @escaping FetchDetailsCompletion)
 }
 

@@ -16,7 +16,9 @@ protocol AlertPresentable {
 extension AlertPresentable where Self: UIViewController {
     func showError(_ error: Error) {
         let title = NSLocalizedString("Error", comment: "error alert title")
-        let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
+        let alert = UIAlertController(title: title,
+                                      message: error.localizedDescription,
+                                      preferredStyle: .alert)
         let closeAction = UIAlertAction(title: "Ok", style: .cancel)
         alert.addAction(closeAction)
         present(alert, animated: true)

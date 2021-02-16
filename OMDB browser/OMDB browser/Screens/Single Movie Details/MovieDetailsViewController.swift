@@ -21,9 +21,14 @@ final class MovieDetailsViewController: UIViewController, AlertPresentable {
         let topCellName = TopMovieDetailsTableViewCell.name
         let topCellNib = UINib(nibName: topCellName, bundle: nil)
         tableView.register(topCellNib, forCellReuseIdentifier: topCellName)
+        
         let middleCellName = MiddleMovieDetailsInfoTableViewCell.name
         let middleCellNib = UINib(nibName: middleCellName, bundle: nil)
         tableView.register(middleCellNib, forCellReuseIdentifier: middleCellName)
+        
+        let bottomCellName = BottomMovieDetailsInfoTableViewCell.name
+        let bottomCellNib = UINib(nibName: bottomCellName, bundle: nil)
+        tableView.register(bottomCellNib, forCellReuseIdentifier: bottomCellName)
     }
 }
 
@@ -47,6 +52,17 @@ extension MovieDetailsViewController: UITableViewDataSource {
         if indexPath.row == MovieDetailCell.middleInfo.row {
             let identifier = MiddleMovieDetailsInfoTableViewCell.name
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MiddleMovieDetailsInfoTableViewCell,
+                  let movieDetails = viewModel?.movieDetails else {
+                return UITableViewCell()
+            }
+
+            cell.setup(with: movieDetails)
+            return cell
+        }
+        
+        if indexPath.row == MovieDetailCell.bottomInfo.row {
+            let identifier = BottomMovieDetailsInfoTableViewCell.name
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? BottomMovieDetailsInfoTableViewCell,
                   let movieDetails = viewModel?.movieDetails else {
                 return UITableViewCell()
             }

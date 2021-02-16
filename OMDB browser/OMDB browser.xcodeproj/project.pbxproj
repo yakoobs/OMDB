@@ -20,6 +20,8 @@
 		CFD0F4CD25DBABAA006FAB88 /* MiddleMovieDetailsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0F4CB25DBABAA006FAB88 /* MiddleMovieDetailsInfoTableViewCell.swift */; };
 		CFD0F4CE25DBABAA006FAB88 /* MiddleMovieDetailsInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD0F4CC25DBABAA006FAB88 /* MiddleMovieDetailsInfoTableViewCell.xib */; };
 		CFD0F4D425DBB3C2006FAB88 /* AlertPresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0F4D325DBB3C2006FAB88 /* AlertPresentableProtocol.swift */; };
+		CFD0F4E325DBBF46006FAB88 /* BottomMovieDetailsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0F4E125DBBF46006FAB88 /* BottomMovieDetailsInfoTableViewCell.swift */; };
+		CFD0F4E425DBBF46006FAB88 /* BottomMovieDetailsInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD0F4E225DBBF46006FAB88 /* BottomMovieDetailsInfoTableViewCell.xib */; };
 		CFDBCAE225DAEEB5008B9809 /* MoviesDatabaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDBCAE125DAEEB5008B9809 /* MoviesDatabaseAPI.swift */; };
 		CFDBCAE825DAEF02008B9809 /* OMDBSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDBCAE725DAEF02008B9809 /* OMDBSearchResult.swift */; };
 		CFDBCAF325DAEF90008B9809 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDBCAF225DAEF90008B9809 /* MovieDetails.swift */; };
@@ -69,6 +71,8 @@
 		CFD0F4CB25DBABAA006FAB88 /* MiddleMovieDetailsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleMovieDetailsInfoTableViewCell.swift; sourceTree = "<group>"; };
 		CFD0F4CC25DBABAA006FAB88 /* MiddleMovieDetailsInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiddleMovieDetailsInfoTableViewCell.xib; sourceTree = "<group>"; };
 		CFD0F4D325DBB3C2006FAB88 /* AlertPresentableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentableProtocol.swift; sourceTree = "<group>"; };
+		CFD0F4E125DBBF46006FAB88 /* BottomMovieDetailsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMovieDetailsInfoTableViewCell.swift; sourceTree = "<group>"; };
+		CFD0F4E225DBBF46006FAB88 /* BottomMovieDetailsInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomMovieDetailsInfoTableViewCell.xib; sourceTree = "<group>"; };
 		CFDBCAE125DAEEB5008B9809 /* MoviesDatabaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDatabaseAPI.swift; sourceTree = "<group>"; };
 		CFDBCAE725DAEF02008B9809 /* OMDBSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDBSearchResult.swift; sourceTree = "<group>"; };
 		CFDBCAF225DAEF90008B9809 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				CFD0F4C525DBAA3A006FAB88 /* TopMovieDetailsTableViewCell.xib */,
 				CFD0F4CB25DBABAA006FAB88 /* MiddleMovieDetailsInfoTableViewCell.swift */,
 				CFD0F4CC25DBABAA006FAB88 /* MiddleMovieDetailsInfoTableViewCell.xib */,
+				CFD0F4E125DBBF46006FAB88 /* BottomMovieDetailsInfoTableViewCell.swift */,
+				CFD0F4E225DBBF46006FAB88 /* BottomMovieDetailsInfoTableViewCell.xib */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -361,6 +367,7 @@
 				CFD0F4CE25DBABAA006FAB88 /* MiddleMovieDetailsInfoTableViewCell.xib in Resources */,
 				CF472A4525DAE45F0088142F /* Main.storyboard in Resources */,
 				CFD0F4C725DBAA3A006FAB88 /* TopMovieDetailsTableViewCell.xib in Resources */,
+				CFD0F4E425DBBF46006FAB88 /* BottomMovieDetailsInfoTableViewCell.xib in Resources */,
 				CFDBCB0625DB1E36008B9809 /* MovieListCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +407,7 @@
 				CFDBCB1F25DB2D9D008B9809 /* MovieDetailsViewModel.swift in Sources */,
 				CFDBCB1725DB2D66008B9809 /* MovieDetailsViewController.swift in Sources */,
 				CFDBCB0C25DB206F008B9809 /* UIImageViewExtensions.swift in Sources */,
+				CFD0F4E325DBBF46006FAB88 /* BottomMovieDetailsInfoTableViewCell.swift in Sources */,
 				CFDBCAF325DAEF90008B9809 /* MovieDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

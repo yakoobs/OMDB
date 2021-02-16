@@ -72,7 +72,7 @@ extension MovieDetailsViewController: UITableViewDataSource {
         }
 
         
-        return UITableViewCell() //TODO: implementation here!
+        return UITableViewCell()
     }
 }
 

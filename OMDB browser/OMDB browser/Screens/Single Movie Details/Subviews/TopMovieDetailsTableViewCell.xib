@@ -22,6 +22,13 @@
                             <constraint firstAttribute="height" constant="399" id="AGq-Mq-fUK"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffx-rl-WhW">
+                        <rect key="frame" x="0.0" y="319" width="525" height="80"/>
+                        <color key="backgroundColor" white="0.5" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="d4i-dE-MJL"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfp-HV-Xsm">
                         <rect key="frame" x="16" y="331.5" width="54" height="25.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
@@ -36,7 +43,9 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ffx-rl-WhW" secondAttribute="bottom" id="0gZ-5g-qWs"/>
                     <constraint firstItem="Yw2-LM-Wje" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7mR-Ag-DQN"/>
+                    <constraint firstItem="ffx-rl-WhW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8bs-dT-DaY"/>
                     <constraint firstItem="Yw2-LM-Wje" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Now-JN-mzt"/>
                     <constraint firstAttribute="bottom" secondItem="Yw2-LM-Wje" secondAttribute="bottom" id="Q3d-0t-jtY"/>
                     <constraint firstAttribute="trailing" secondItem="Yw2-LM-Wje" secondAttribute="trailing" id="RSc-wt-fES"/>
@@ -44,6 +53,7 @@
                     <constraint firstItem="9qR-PD-F75" firstAttribute="top" secondItem="cfp-HV-Xsm" secondAttribute="bottom" constant="8" symbolic="YES" id="k7v-RE-Lci"/>
                     <constraint firstItem="9qR-PD-F75" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="r6A-DM-bIS"/>
                     <constraint firstItem="9qR-PD-F75" firstAttribute="bottom" secondItem="Yw2-LM-Wje" secondAttribute="bottom" constant="-16" id="w5K-47-2z2"/>
+                    <constraint firstAttribute="trailing" secondItem="ffx-rl-WhW" secondAttribute="trailing" id="wdx-JA-E83"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -14,6 +14,10 @@ final class MovieListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    override func prepareForReuse() {
+        imageView.image = nil
+    }
+    
     func setup(with movie: MovieBasicInfo) {
         imageView.downloaded(from: movie.poster)
         titleLabel.text = movie.title + " (\(movie.year))"

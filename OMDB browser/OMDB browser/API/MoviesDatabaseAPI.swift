@@ -11,14 +11,14 @@ typealias SearchResultCompletion = (Result<OMDBSearchResult,Error>) -> Void
 typealias FetchDetailsCompletion = (Result<MovieDetails,Error>) -> Void
 
 protocol MoviesDatabaseAPIProtocol {
-    func search(query: String, completion: @escaping SearchResultCompletion)
+    func search(query: String, page: Int?, completion: @escaping SearchResultCompletion)
     func fetchDetails(movieId: String, completion: @escaping FetchDetailsCompletion)
 }
 
 final class MovieDatabaseAPI: MoviesDatabaseAPIProtocol {
-    func search(query: String, completion: @escaping SearchResultCompletion) {
+    func search(query: String, page: Int? = nil, completion: @escaping SearchResultCompletion) {
         
-        if let url = APIEndpoints.search(query).url {
+        if let url = APIEndpoints.search(query, page).url {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     do {

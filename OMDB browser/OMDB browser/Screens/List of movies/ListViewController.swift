@@ -46,28 +46,32 @@ extension ListViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MovieListCollectionViewCell else {
             return UICollectionViewCell()
         }
-        if let movie = viewModel.movies?[indexPath.item] {
-            cell.setup(with: movie)
-        }
+        let movie = viewModel.movies[indexPath.item]
+        cell.setup(with: movie)
         return cell
     }
 }
 
 extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let selectedMovie = viewModel.movies?[indexPath.item] {
-            viewModel.selectedItem = selectedMovie
-            performSegue(withIdentifier: showDetailsSegueId, sender: nil)
+        let selectedMovie = viewModel.movies[indexPath.item]
+        viewModel.selectedItem = selectedMovie
+        performSegue(withIdentifier: showDetailsSegueId, sender: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let query = searchBar.text, indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+            viewModel.loadMore(for: query)
         }
     }
 }
 
 extension ListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          let padding: CGFloat = 40
-          let collectionViewSize = collectionView.frame.size.width - padding
-          return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
-      }
+        let padding: CGFloat = 40
+        let collectionViewSize = collectionView.frame.size.width - padding
+        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
+    }
 }
 
 extension ListViewController: UISearchBarDelegate {

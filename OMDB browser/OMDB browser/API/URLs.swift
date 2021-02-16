@@ -8,7 +8,7 @@
 import Foundation
 
 enum APIEndpoints {
-    case search(String)
+    case search(String, Int?)
     case details(String)
     
     var url: URL? {
@@ -17,8 +17,10 @@ enum APIEndpoints {
     
     private var urlString: String {
         switch self {
-        case .search(let query):
-            return APIConstatnts.baseURL + "?apikey=" + APIConstatnts.apiKey + "&s=" + query + "&type=movie"
+        case .search(let query, let page):
+            let pageParam = (page != nil) ? "&page=\(page!)" : ""
+            
+            return APIConstatnts.baseURL + "?apikey=" + APIConstatnts.apiKey + "&s=" + query + "&type=movie" + pageParam
         case .details(let movieId):
             return APIConstatnts.baseURL + "?apikey=" + APIConstatnts.apiKey + "&i=" + movieId
         }

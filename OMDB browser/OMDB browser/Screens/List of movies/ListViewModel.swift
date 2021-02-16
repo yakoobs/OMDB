@@ -15,9 +15,11 @@ protocol ListViewModelDelegate: AnyObject {
 final class ListViewModel {
     
     weak var delegate: ListViewModelDelegate?
-    var movies: [MovieBasicInfo]?
+    var movies: [MovieBasicInfo] = []
+    var totalResults: Int = 0
     var selectedItem: MovieBasicInfo?
     
+    private var page: Int = 1
     private let moviesAPI: MoviesDatabaseAPIProtocol
 
     init(moviesAPI: MoviesDatabaseAPIProtocol = MovieDatabaseAPI()) {
@@ -25,11 +27,24 @@ final class ListViewModel {
     }
     
     func search(for query: String) {
-        moviesAPI.search(query: query, completion: handleSearchResults)
+        page = 1
+        movies = []
+        delegate?.updateResults()
+        moviesAPI.search(query: query, page: nil, completion: handleSearchResults)
+    }
+    
+    func loadMore(for query: String) {
+        guard shouldLoadMore else {return}
+        page += 1
+        moviesAPI.search(query: query, page: page, completion: handleSearchResults)
+    }
+    
+    private var shouldLoadMore: Bool {
+        return movies.count < totalResults
     }
     
     var resultsCount: Int {
-        return movies?.count ?? 0
+        return movies.count
     }
     
     private var handleSearchResults: SearchResultCompletion {
@@ -37,11 +52,12 @@ final class ListViewModel {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let result):
-                    self?.movies = result.search
+                    if let search = result.search {
+                        self?.movies.append(contentsOf: search)
+                    }
+                    self?.totalResults = Int(result.totalResults) ?? 0
                     self?.delegate?.updateResults()
                 case .failure(let error):
-                    self?.movies = nil
-                    self?.delegate?.updateResults() 
                     self?.delegate?.showError(error)
                 }
             }

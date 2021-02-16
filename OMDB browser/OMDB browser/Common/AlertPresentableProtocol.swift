@@ -8,13 +8,16 @@
 import UIKit
 
 protocol AlertPresentable {
+    /// Show simple alert with Ok button
+    /// - Parameter error: <#error description#>
     func showError(_ error: Error)
 }
 
 extension AlertPresentable where Self: UIViewController {
     func showError(_ error: Error) {
-        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        let closeAction = UIAlertAction(title: "OK", style: .cancel)
+        let title = NSLocalizedString("Error", comment: "error alert title")
+        let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
+        let closeAction = UIAlertAction(title: "Ok", style: .cancel)
         alert.addAction(closeAction)
         present(alert, animated: true)
     }
